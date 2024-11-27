@@ -3,9 +3,7 @@ import scenes.LevelScene as Level
 import scenes.MenuScene as Menu
 from screeninfo import get_monitors
 
-WIDTH, HEIGHT = 0, 0
-for monitor in get_monitors():
-    WIDTH, HEIGHT = monitor.width, monitor.height
+WIDTH, HEIGHT = get_monitors()[0].width, get_monitors()[0].height
 
 pygame.init()
 pygame.font.init()
@@ -16,17 +14,16 @@ clock = pygame.time.Clock()
 
 cur_scene = 'MENU'
 def switch_scene_menu():
-    Menu.Scene.init(WIDTH, HEIGHT, switch_scene_lvl)
+    Menu.Scene.init(switch_scene_lvl)
     global cur_scene
     cur_scene = 'MENU' 
 def switch_scene_lvl():
-    Level.Scene.init(WIDTH, HEIGHT, switch_scene_menu)
+    Level.Scene.init(switch_scene_menu)
     global cur_scene
     cur_scene = 'LEVEL'
 
 def main():    
-    Menu.Scene.init(WIDTH, HEIGHT, switch_scene_lvl)
-    Level.Scene.init(WIDTH, HEIGHT, switch_scene_menu)
+    Menu.Scene.init(switch_scene_lvl)
 
     run = True
     while run:

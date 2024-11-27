@@ -24,5 +24,3 @@ class HeroClass(pygame.sprite.Sprite):
     def death(self):
         pygame.event.post(pygame.event.Event(Events.DEADTH_EVENT))
         
-    def update(self):
-        pass

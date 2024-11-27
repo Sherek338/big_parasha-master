@@ -30,7 +30,7 @@ class EnemyClass(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.topleft = pos
         
-    def update(self):
+    def update(self, a = None):
         if self.is_angry:
             self.image.blit(self.warn, (0, 0))
         
